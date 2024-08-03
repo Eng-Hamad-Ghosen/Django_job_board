@@ -7,7 +7,8 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text">
-                        <h3>{{jobs.count}}+ Jobs Available</h3>
+                        <h3>+{{job.count}} Jobs Available</h3><!-- count of all jobs Available -->
+                        {% comment %} <h3>{{jobs|length}}+ Jobs Available</h3> {% endcomment %}  <!--count of jobs in one page(in paginator)-->
                     </div> 
                 </div>
             </div>

@@ -13,7 +13,7 @@ def job_list(request):
     page_obj=paginator.get_page(page_number)
     # context={"jobs":job_list}
 
-    context={"jobs":page_obj}
+    context={"jobs":page_obj,'job':job_list}#(job) use only for count
     return render(request,'job/job_list.html',context)
 
 
