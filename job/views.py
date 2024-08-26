@@ -33,6 +33,16 @@ def job_details(request,slug):
     context={"job":job_detail,'form':form}
     return render(request, 'job/job_detail.html',context)
 
+def like_unlike(request,slug):
+    job_detail=Job.objects.get(slug=slug)
+    
+    if request.user in job_detail.like.all():
+        job_detail.like.remove(request.user)
+        print("IN")
+    else:
+        job_detail.like.add(request.user)
+        print("Not in")
+    return redirect(reverse('jobs:job_details',kwargs={"slug":job_detail.slug}))
 
 
 def add_job(request):

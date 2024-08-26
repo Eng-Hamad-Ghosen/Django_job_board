@@ -15,6 +15,8 @@ def image_upload(instance,filename):
     return "jobs/%s.%s"%(instance.id,extention)
 
 class Job(models.Model):
+    like=models.ManyToManyField(User,blank=True)
+    
     owner=models.ForeignKey(User, related_name=("Job_Owner"), on_delete=models.CASCADE)
     title=models.CharField(max_length=100)
     # location

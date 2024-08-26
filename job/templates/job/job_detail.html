@@ -39,7 +39,14 @@
                             </div>
                             <div class="jobs_right">
                                 <div class="apply_now">
-                                    <a class="heart_mark" href="#"> <i class="ti-heart"></i> </a>
+                                    
+                                    <!-- <a class="heart_mark" href="{% url 'jobs:like_unlike' job.slug %}"> <i class="ti-heart"></i>Like </a> -->
+                                    {% if request.user in job.like.all %}
+                                    <a class="heart_mark" href="{% url 'jobs:like_unlike' job.slug %}"> <i class="fa fa-heart"></i> </a>
+                                    {% else %}
+                                    <a class="heart_mark" href="{% url 'jobs:like_unlike' job.slug %}"> <i class="ti-heart"></i> </a>
+
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
