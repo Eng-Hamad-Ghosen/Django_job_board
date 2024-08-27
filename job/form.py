@@ -10,4 +10,4 @@ class JobForm(forms.ModelForm):
     class Meta:
         model=Job
         fields='__all__'
-        exclude=('owner','slug',)
+        exclude=('owner','slug','like')
