@@ -3,8 +3,10 @@ from django.core.paginator import Paginator
 from .models import Job
 from .form import ApplyForm,JobForm
 from django.urls import reverse
-# Create your views here.
 
+from django.contrib.auth.decorators import login_required
+# Create your views here.
+@login_required
 def job_list(request):
     job_list = Job.objects.all()
 
@@ -44,7 +46,7 @@ def like_unlike(request,slug):
         print("Not in")
     return redirect(reverse('jobs:job_details',kwargs={"slug":job_detail.slug}))
 
-
+@login_required
 def add_job(request):
 
     if request.method=='POST':

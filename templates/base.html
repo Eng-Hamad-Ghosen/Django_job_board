@@ -54,8 +54,8 @@
                                     <nav>
                                         <ul id="navigation">
                                             {% comment %} <li><a href="/jobs/">home</a></li> {% endcomment %}
-                                            <li><a href="{% url 'jobs:job_list' %}">home</a></li>
-                                            <li><a href="jobs.html">Browse Job</a></li>
+                                            <li><a href="/">home</a></li>
+                                            <li><a href="{% url 'jobs:job_list' %}">Browse Job</a></li>
                                             <li><a href="#">pages <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
                                                     <li><a href="candidate.html">Candidates </a></li>
@@ -69,15 +69,29 @@
                                                     <li><a href="single-blog.html">single-blog</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="{% url 'contact:contact' %}">Contact</a></li>
                                         </ul>
+                                        
                                     </nav>
+                                    
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                                 <div class="Appointment">
-                                    <div class="phone_num d-none d-xl-block">
-                                        <a href="#">Log in</a>
+                                    <div class="phone_num d-none d-xl-block main-menu  d-none d-lg-block">
+                                        
+                                        {% if request.user.is_authenticated %}
+                                    <ul id="navigation">
+                                        <li><a href="">Your account <i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a href="{% url 'accounts:profile' %}">My Profile</a></li>
+                                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                                                {% else %}
+                                        <li><a href="{% url 'login' %}">Login</a></li>
+                                        {% endif %}
+                                            </ul>
+                                        </li>
+                                    </ul>
                                     </div>
                                     <div class="d-none d-lg-block">
                                         <a class="boxed-btn3" href="{% url 'jobs:add_job' %}">Post a Job</a>
