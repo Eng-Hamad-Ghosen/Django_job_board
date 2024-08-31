@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #my apps
     'job',
+    'contact',
     "django_bootstrap5",
     'django_filters',
 ]
@@ -135,3 +136,20 @@ STATICFILES_DIRS=[
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#For send_mail
+# default backend
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_HOST_USER = 'YourEmail@gmail.com'
+
+EMAIL_HOST_PASSWORD='Your App Password'
+
+EMAIL_USER_TLS = True
+
+EMAIL_PORT = '587'
+# Use EMAIL_PORT 465 for SSL
+# Use EMAIL_PORT 587 for TLS
