@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'contact',
     "django_bootstrap5",
     'django_filters',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -153,3 +154,6 @@ EMAIL_USER_TLS = True
 EMAIL_PORT = '587'
 # Use EMAIL_PORT 465 for SSL
 # Use EMAIL_PORT 587 for TLS
+
+
+LOGIN_REDIRECT_URL = '/jobs/'

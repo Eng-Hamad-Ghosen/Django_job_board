@@ -31,7 +31,7 @@ def signup(request):
             
 def profile(request):
     profile=Profile.objects.get(user=request.user)
-    
+
     return render(request,'account/profile.html',{'profile':profile})       
 
 def profile_edit(request):
@@ -44,6 +44,7 @@ def profile_edit(request):
         
         profileform=ProfileForm(instance=ob_profile)
         userform =UserForm(instance=request.user)
+        
         return render(request,'account/profile_edit.html',{'userform':userform , 'profileform':profileform})
         
     if request.method=='POST':
@@ -62,5 +63,5 @@ def profile_edit(request):
         # profile.image=request.POST['csrfmiddlewaretoken']
         # profile.save()
         profile=Profile.objects.get(user=request.user)
-            
+        
         return redirect(reverse('accounts:profile'))

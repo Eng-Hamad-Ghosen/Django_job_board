@@ -1,4 +1,10 @@
 asgiref==3.8.1
 Django==5.0.6
+django-bootstrap5==24.2
+django-filter==24.3
+django-rest-framework==0.1.0
+djangorestframework==3.15.2
+Markdown==3.7
+pillow==10.4.0
 sqlparse==0.5.0
 tzdata==2024.1
